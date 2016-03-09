@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainView</class>
+ <widget class="QMainWindow" name="MainView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>530</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>530</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>530</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainView</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#MainView {
+	background: #27313E;
+}
+
+#centralWidget {
+	background: #27313E;
+}
+
+#mainFrame {
+	border: 7px solid #DD4A38;
+	border-radius: 20px;
+	background: #27313E;
+}
+
+#roomList {
+	border: 7px solid #DD4A38;
+	border-radius: 20px;
+	background: #27313E;
+}
+
+#lblName, #lblCurrTemp, #lblPrefTemp, #currTemp {
+	color: white;
+	font-size: 20px;
+}
+
+#editName {
+	color: 27313E;
+	font-size: 18px;
+}
+
+#editTemp {
+	font-size: 18px;
+}
+
+#btnUpdate, #btnAdd {
+	font-size: 18px;
+	padding-left: 10px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	border: 6px solid #27313E;
+	border-radius: 15px;
+	background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4A5D75, stop: 1 #354354);
+	width: 100px;
+	color: white;
+}
+
+#btnUpdate:!enabled, #btnAdd:!enabled {
+	color: #354354;
+}
+
+#btnUpdate:pressed, #btnAdd:pressed {
+	background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4A5D75, stop: 1 green);
+}
+
+QScrollBar::vertical {
+	border: 3px solid #354354;
+	border-radius: 5px;
+    background:white;
+    width: 30px;
+    margin: 5px 0px 0px 0px;
+	max-height: 377px;
+}
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop: 0  #DD4A38, stop: 0.5 #DD4A38,  stop:1 #DD4A38);
+    min-height: 0px;
+}
+QScrollBar::add-line:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop: 0  #DD4A38, stop: 0.5 #DD4A38,  stop:1 #DD4A38);
+    height: px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+    stop: 0  #DD4A38, stop: 0.5 #DD4A38,  stop:1 #DD4A38);
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>530</height>
+    </size>
+   </property>
+   <widget class="QFrame" name="mainFrame">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>490</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>490</width>
+      <height>420</height>
+     </size>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="editRoom" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>470</width>
+       <height>400</height>
+      </rect>
+     </property>
+     <widget class="QLineEdit" name="editName">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>30</y>
+        <width>261</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblName">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>81</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Name: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblCurrTemp">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>120</y>
+        <width>211</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Current Temperature: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="currTemp">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>120</y>
+        <width>211</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblPrefTemp">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>210</y>
+        <width>231</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Preferred Temperature: </string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="editTemp">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>210</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnUpdate">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>300</y>
+        <width>200</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update Room</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSetup">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>300</y>
+        <width>200</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Setup</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="roomList">
+    <property name="geometry">
+     <rect>
+      <x>551</x>
+      <y>30</y>
+      <width>219</width>
+      <height>420</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>219</width>
+      <height>420</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#roomList {
+	padding: 5px;
+	color: white;
+	font-size: 20px;
+}
+
+#roomList::item {
+	padding-left: 10px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	border: 6px solid #27313E;
+	border-radius: 15px;
+	background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4A5D75, stop: 1 #354354);
+	width: 100px;
+	color: white;
+}
+
+#roomList::item::selected {
+	background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4A5D75, stop: 1 #BA3E34);
+	color: white;
+}</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnExit">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>480</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Debug Exit</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnExit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainView</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
